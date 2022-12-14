@@ -210,11 +210,21 @@ class Patient:
     def displayPatientsList(self):
         for i in self.patientlist:
             print(f"{i}\n")
+          
+    def firstLineDisplay2(self):
+        print("{:<5} {:<20} {:<15} {:<15} {:<7}".format(
+            'id',
+            'Name',
+            'Disease',
+            'Gender',
+            'Age\n'
+        ))
 
     def searchPatientById(self):
         patient_id=input("Enter the Patient Id:\n")
         for i in self.patientlist:
             if patient_id == i.pid:
+                Patient().firstLineDisplay2()
                 return print(f"{i}\n")
         return print("Can't find the Patient with the same id on the system\n")  
 
