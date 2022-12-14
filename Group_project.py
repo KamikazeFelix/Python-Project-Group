@@ -261,120 +261,122 @@ class Patient:
         f=open("patients.txt","a")
         i=self.patientlist[-1]
         f.write(i.pid+"_"+i.name+"_"+i.disease+"_"+i.gender+"_"+i.age+"\n" )
+class DisplayMenu:
+    back = "Back to the prevoius Menu \n"
+    active = True
+    while active:
+        print('Welcome to Alberta Hospital  (AH) Managment system! ')
+        choose = input('''Please select from the following options, or select 0 to stop:
+                        1 - 	Doctors
+                        2 - 	Facilities
+                        3 - 	Laboratories
+                        4 - 	Patients
+                        \n''')
+        Doctor().readDoctorsFile()
+        if choose == '1':
 
-back = "Back to the prevoius Menu \n"
-active = True
-while active:
-    print('Welcome to Alberta Hospital  (AH) Managment system! ')
-    choose = input('''Please select from the following options, or select 0 to stop:
-                    1 - 	Doctors
-                    2 - 	Facilities
-                    3 - 	Laboratories
-                    4 - 	Patients
-                    \n''')
-    Doctor().readDoctorsFile()
-    if choose == '1':
-        
-        while True:
-            choose1 = input('''Doctors Menu:
-                            1 - Display Doctors list
-                            2 - Search for doctor by ID
-                            3 - Search for doctor by name
-                            4 - Add doctor
-                            5 - Edit doctor info
-                            6 - Back to the Main Menu
-                            \n''')
-            if choose1 =='1':
-                Doctor().displayDoctorInfo()
-                print(back)
-            elif choose1 == '2':
-                Doctor().searchDoctorByID()
-                print(back)
-            elif choose1 == '3':
-                Doctor().searchDoctorByName()
-                print(back)
-            elif choose1 == '4':
-                Doctor().enterDrInfo()
-                Doctor().addDrToFile()
-                print(back)
-            elif choose1 == '5':
-                Doctor().editDoctorInfo()
-                Doctor().writeListOfDoctorsToFile()
-                print(back)
-            elif choose1 == '6':
-                break
-            else:
-                print('Please enter a valid number!')
-                
-            
-    elif choose == '2':
-        while True:
-            choose2 = input('''Facilities Menu:
-                            1 - Display Facilities list
-                            2 - Add Facility
-                            3 - Back to the Main Menu
-                            \n''')
+            while True:
+                choose1 = input('''Doctors Menu:
+                                1 - Display Doctors list
+                                2 - Search for doctor by ID
+                                3 - Search for doctor by name
+                                4 - Add doctor
+                                5 - Edit doctor info
+                                6 - Back to the Main Menu
+                                \n''')
+                if choose1 =='1':
+                    Doctor().displayDoctorInfo()
+                    print(back)
+                elif choose1 == '2':
+                    Doctor().searchDoctorByID()
+                    print(back)
+                elif choose1 == '3':
+                    Doctor().searchDoctorByName()
+                    print(back)
+                elif choose1 == '4':
+                    Doctor().enterDrInfo()
+                    Doctor().addDrToFile()
+                    print(back)
+                elif choose1 == '5':
+                    Doctor().editDoctorInfo()
+                    Doctor().writeListOfDoctorsToFile()
+                    print(back)
+                elif choose1 == '6':
+                    break
+                else:
+                    print('Please enter a valid number!')
 
-            if choose2 == '1':
-                Facilities().displayFacilities()
-            elif choose2 == '2':
-                Facilities().addFacility() 
-                Facilities().writeListOffacilitiesToFile()
-            elif choose2 == '3':
-                break
-            else:
-                print('Please enter a valid number!')
-    elif choose == '3':
-        Lab().writeListOfLabsToFile()
-        Lab().readLaboratoriesFile()
-        while True:
-            choose3 = input('''Laboratories Menu:
-                            1- Display laboratories list
-                            2- Add laboratory
-                            3- Back to the Main Menu
-                            \n''')
-            if choose3 == '1':
-                Lab().displayLabsList()
-            elif choose3 == '2':
-                Lab().addLabToFile()
-            elif choose3 == '3':
-                break
-            else:
-                print('Please enter a valid number!')
-            
-    elif choose == '4':
-        Patient().readPatientsFile()
-        while True:
-            choose4 = input('''Patients Menu:
-                            1 - Display patients list
-                            2 - Search for patient by ID
-                            3 - Add patient
-                            4 - Edit patient info
-                            5 - Back to the Main Menu
-                            \n''')
-            if choose4 == '1':
-                Patient().displayPatientsList()
-                print("Back to the prevoius Menu")
-            elif choose4 == "2":
-                Patient().searchPatientById()
-                print("Back to the prevoius Menu")
-            elif choose4 == "3":
-                Patient().enterPatientInfo()
-                Patient().addPatientToFile()
-                print("Back to the prevoius Menu")
-            elif choose4 == "4":
-                Patient().editPatientInfo()
-                Patient().writeListOfPatientsToFile()
-                print("Back to the prevoius Menu")
-            elif choose4 == '5':
-                break
-            else:
-                print('Please enter a valid number!')
 
-    elif choose == '0':
-        active = False
-        break
+        elif choose == '2':
+            while True:
+                choose2 = input('''Facilities Menu:
+                                1 - Display Facilities list
+                                2 - Add Facility
+                                3 - Back to the Main Menu
+                                \n''')
+
+                if choose2 == '1':
+                    Facilities().displayFacilities()
+                elif choose2 == '2':
+                    Facilities().addFacility() 
+                    Facilities().writeListOffacilitiesToFile()
+                elif choose2 == '3':
+                    break
+                else:
+                    print('Please enter a valid number!')
+        elif choose == '3':
+            Lab().writeListOfLabsToFile()
+            Lab().readLaboratoriesFile()
+            while True:
+                choose3 = input('''Laboratories Menu:
+                                1- Display laboratories list
+                                2- Add laboratory
+                                3- Back to the Main Menu
+                                \n''')
+                if choose3 == '1':
+                    Lab().displayLabsList()
+                elif choose3 == '2':
+                    Lab().addLabToFile()
+                elif choose3 == '3':
+                    break
+                else:
+                    print('Please enter a valid number!')
+
+        elif choose == '4':
+            Patient().readPatientsFile()
+            while True:
+                choose4 = input('''Patients Menu:
+                                1 - Display patients list
+                                2 - Search for patient by ID
+                                3 - Add patient
+                                4 - Edit patient info
+                                5 - Back to the Main Menu
+                                \n''')
+                if choose4 == '1':
+                    Patient().displayPatientsList()
+                    print("Back to the prevoius Menu")
+                elif choose4 == "2":
+                    Patient().searchPatientById()
+                    print("Back to the prevoius Menu")
+                elif choose4 == "3":
+                    Patient().enterPatientInfo()
+                    Patient().addPatientToFile()
+                    print("Back to the prevoius Menu")
+                elif choose4 == "4":
+                    Patient().editPatientInfo()
+                    Patient().writeListOfPatientsToFile()
+                    print("Back to the prevoius Menu")
+                elif choose4 == '5':
+                    break
+                else:
+                    print('Please enter a valid number!')
+
+        elif choose == '0':
+            active = False
+            break
 
     else:
         print("Enter a valid entry")
-        continue
+        continue    
+    
+DisplayMenu()
